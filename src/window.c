@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "keyInput.h"
+#include "../headers/keyInput.h"
 // gcc -o myprog window.c keyInput.c -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 int i = 0;
 double r, g, b, a;
