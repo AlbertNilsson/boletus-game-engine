@@ -4,14 +4,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../headers/keyInput.h"
+#include "../headers/cursorInput.h"
+
+
+
 // gcc -o myprog window.c keyInput.c -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 int i = 0;
 double r, g, b, a;
+double xPos, yPos;
 
 void key_callback2(GLFWwindow* window, int key, int scancode, int action, int mods){
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
 }
+
 
 
 int main(void)
@@ -23,7 +29,7 @@ int main(void)
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1000, 1000, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(1000, 1000, "Boletus", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -34,6 +40,11 @@ int main(void)
       glfwMakeContextCurrent(window);
 
       glfwSetKeyCallback(window, key_callback);
+//      glfwSetCursorPosCallback(window, cursor_position_callback);
+      glfwSetCursorPosCallback(window, cursor_position_callback);
+
+      glfwSetMouseButtonCallback(window, mouse_button_callback);
+      glfwSetScrollCallback(window, scroll_callback);
     /* Loop until the user closes the window */
     r = (double)rand()/RAND_MAX;
     g = (double)rand()/RAND_MAX;
@@ -61,7 +72,7 @@ int main(void)
 
         //glfwSetKeyCallback(window, key_callback);
     }
-
+    glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
 }
