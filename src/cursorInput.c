@@ -13,16 +13,14 @@ void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
   lastY = yPos;
   xPos = xpos;
   yPos = ypos;
+  isDragging = mouseButtonPressed[0] || mouseButtonPressed[1] || mouseButtonPressed[2];
   printf("xPos: %lf, yPos: %lf\n",xPos,yPos);
-
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
   if(button > 2) {
     printf("Boletus currently only support three mousebuttons");
-    return;
   } else if (action == GLFW_PRESS){
-    isDragging = true;
     mouseButtonPressed[button] = 1;
     printf("button %d was pressed\n", button);
   } else if(action == GLFW_RELEASE) {
@@ -33,10 +31,16 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
-  scrollX += xoffset;
-  scrollY += yoffset;
+  scrollX = xoffset;
+  scrollY = yoffset;
   printf("scrolling ... (%lf, %lf)\n", scrollX, scrollY);
 }
 
+void endFrame() {
+  scrollX = 0;
+  scrollY = 0;
+  lastX = xPos;
+  lastY = yPos;
+}
 
 
