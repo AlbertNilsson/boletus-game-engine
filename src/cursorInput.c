@@ -1,4 +1,4 @@
-#include "../headers/cursorInput.h"
+#include "include/cursorInput.h"
 #include <stdio.h>
 #include <stdbool.h>
 double xPos = 0.0, yPos = 0.0, lastY = 0.0, lastX = 0.0, scrollX = 0.0, scrollY = 0.0;
