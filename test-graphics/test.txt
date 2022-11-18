@@ -1,0 +1,5 @@
+Vertex shader succesfully compiled
+Fragment shader succesfully compiled
+Vertex shader succesfully linked
+Error:  0
+GL version:  4.1 INTEL-20.2.44

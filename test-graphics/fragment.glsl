@@ -1,9 +1,8 @@
 #version 410 core
 
-uniform vec3 triangleColor;
+in vec3 vColor;
 out vec4 outColor;
 
-void main()
-{
-  outColor = vec4(triangleColor, 1.0);
+void main() {
+  outColor = vec4(vColor, 1.0);
 }
